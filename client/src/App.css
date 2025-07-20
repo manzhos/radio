@@ -1,0 +1,11 @@
+
+body,html,#root{margin:0;height:100%;font-family:sans-serif;}
+.app{height:100%;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:1rem;transition:background .3s,color .3s;}
+.light{background:#f0f0f0;color:#222}.dark{background:#111;color:#eee}
+.theme{position:absolute;top:10px;right:10px;background:none;border:none;font-size:1.5rem;color:inherit;cursor:pointer}
+.ctr{display:flex;gap:2rem;margin-bottom:1rem}
+.ctr button{background:none;border:none;font-size:clamp(2rem,8vw,3rem);color:inherit;cursor:pointer}
+.name{max-width:90vw;text-align:center;margin-bottom:1rem;word-break:break-word}
+.bar{width:80%;height:8px;background:rgba(255,255,255,.3);border-radius:4px;overflow:hidden;cursor:pointer}
+.light .bar{background:#ccc}.fill{height:100%;background:#29d;transition:width .1s}.dark .fill{background:#0cf}
+@media(max-width:600px){.ctr{gap:1.2rem}.bar{width:90%}}
