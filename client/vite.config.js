@@ -11,5 +11,5 @@ export default defineConfig({
       icons:[{src:'/icon-192.png',sizes:'192x192',type:'image/png'},
              {src:'/icon-512.png',sizes:'512x512',type:'image/png'}]
     }})],
-  server:{proxy:{'/random':'http://localhost:3000','/music':'http://localhost:3000'}}
+  server:{proxy:{'/random':'https://radio.manzhos.cz:3000','/music':'https://radio.manzhos.cz:3000'}}
 });

@@ -10,8 +10,6 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 const musicDir = path.join(__dirname,'music');
 
-app.use(cors());
-app.use('/music', express.static(musicDir));
 
 function listMp3(dir){
     let res=[];
@@ -23,6 +21,16 @@ function listMp3(dir){
     }
     return res;
 }
+
+app.use(cors());
+
+app.use('/music', express.static(path.join(__dirname, 'music'), {
+  setHeaders(res) {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+  }
+}));
+
+app.use('/', express.static(path.join(__dirname, 'public')));
 
 app.get('/random',(req,res)=>{
     const all=listMp3(musicDir);
