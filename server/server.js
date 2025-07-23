@@ -34,7 +34,7 @@ app.get('/random',(req,res)=>{
     const all=listMp3(musicDir);
     if(!all.length) return res.status(404).send('No mp3');
     const file=all[Math.floor(Math.random()*all.length)];
-    res.send('/music/'+encodeURIComponent(file));
+    res.send('/music/'+encodeURI(file));
 });
 
 app.use('/', express.static(path.join(__dirname, 'public')));
