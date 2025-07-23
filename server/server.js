@@ -30,13 +30,13 @@ app.use('/music', express.static(path.join(__dirname, 'music'), {
   }
 }));
 
-app.use('/', express.static(path.join(__dirname, 'public')));
-
 app.get('/random',(req,res)=>{
     const all=listMp3(musicDir);
     if(!all.length) return res.status(404).send('No mp3');
     const file=all[Math.floor(Math.random()*all.length)];
     res.send('/music/'+encodeURIComponent(file));
 });
+
+app.use('/', express.static(path.join(__dirname, 'public')));
 
 app.listen(PORT,()=>console.log('The server has been started on the PORT: '+PORT));
